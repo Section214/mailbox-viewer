@@ -4,7 +4,8 @@
  */
 
 global $ds_runtime;
-if ( !$ds_runtime->is_localhost ) return;
+// FIXME: This variable doesn't exist on 3.8
+//if ( !$ds_runtime->is_localhost ) return;
 $ds_runtime->add_action( 'ds_head', 'mailbox_viewer_head' );
 function mailbox_viewer_head() {
 	// Inject our css into the header stuff
@@ -14,8 +15,9 @@ function mailbox_viewer_head() {
 	<link href="http://localhost/ds-plugins/mailbox-viewer/css/mailbox.css" rel="stylesheet"/>
 <?php
 }
-
-include_once( $ds_runtime->htdocs_dir . '/header.php');
+// FIXME: Temporary hard code, the htdocs_dir variable is undefined in 3.8.0 on Mac
+//include_once( $ds_runtime->htdocs_dir . '/header.php');
+include_once( '../../htdocs/header.php' );
 include_once( 'class-mail-decoder.php' );
 include_once( 'string.php' );
 ?>

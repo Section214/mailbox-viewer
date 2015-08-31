@@ -3,7 +3,8 @@
  * Create a menu item within our localhost tools pull down menu.
  */
 global $ds_runtime;
-if ( !$ds_runtime->is_localhost ) return; // Not localhost
+// FIXME: This variable doesn't exist on 3.8
+//if ( !$ds_runtime->is_localhost ) return; // Not localhost
 if ( $ds_runtime->last_ui_event !== false ) return; // Not interested in events
 
 /**
